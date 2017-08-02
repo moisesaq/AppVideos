@@ -18,6 +18,8 @@
 		80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D691F302C5F00A11EBF /* VideoCell.swift */; };
 		80F10D6E1F317CD800A11EBF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D6D1F317CD800A11EBF /* Extensions.swift */; };
 		80F10D711F31812E00A11EBF /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D701F31812E00A11EBF /* MenuBar.swift */; };
+		80F10D731F319ADD00A11EBF /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D721F319ADD00A11EBF /* BaseCell.swift */; };
+		80F10D751F319B7800A11EBF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D741F319B7800A11EBF /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		80F10D691F302C5F00A11EBF /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		80F10D6D1F317CD800A11EBF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		80F10D701F31812E00A11EBF /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		80F10D721F319ADD00A11EBF /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		80F10D741F319B7800A11EBF /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				80F10D691F302C5F00A11EBF /* VideoCell.swift */,
+				80F10D721F319ADD00A11EBF /* BaseCell.swift */,
+				80F10D741F319B7800A11EBF /* MenuCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -299,7 +305,9 @@
 				80F10D391F301A7600A11EBF /* HomeController.swift in Sources */,
 				80F10D711F31812E00A11EBF /* MenuBar.swift in Sources */,
 				80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */,
+				80F10D731F319ADD00A11EBF /* BaseCell.swift in Sources */,
 				80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */,
+				80F10D751F319B7800A11EBF /* MenuCell.swift in Sources */,
 				80F10D3F1F301A7600A11EBF /* AppVideos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

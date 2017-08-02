@@ -22,6 +22,11 @@ extension UIColor{
     static func redStatusBar() -> UIColor{
         return UIColor.rgb(red: 194, green: 31, blue: 31, alpha: 1)
     }
+    
+    //COLOR FOR STYLE STATUS BAR
+    static func menuCellNotSelected() -> UIColor{
+        return UIColor.rgb(red: 91, green: 14, blue: 13, alpha: 1)
+    }
 }
 
 extension UIView{

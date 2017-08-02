@@ -16,8 +16,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.navigationBar.isTranslucent = false //Remove opacity from navigation bar
 
         customizeNavigationTitleLabel()
-        
-        collectionView?.backgroundColor = .white
+        configCollectionView()
         registerVideoCell()
         setUpMenuBar()
     }
@@ -28,6 +27,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.textColor = .white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
+    }
+    
+    private func configCollectionView(){
+        collectionView?.backgroundColor = .white
+        collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0) //Add a box like space on the top
+        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0) //Add a box like space on the top to scroll indicator
     }
     
     private func registerVideoCell(){
