@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D361F301A7600A11EBF /* AppDelegate.swift */; };
-		80F10D391F301A7600A11EBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D381F301A7600A11EBF /* ViewController.swift */; };
+		80F10D391F301A7600A11EBF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D381F301A7600A11EBF /* HomeController.swift */; };
 		80F10D3C1F301A7600A11EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F10D3A1F301A7600A11EBF /* Main.storyboard */; };
 		80F10D3F1F301A7600A11EBF /* AppVideos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D3D1F301A7600A11EBF /* AppVideos.xcdatamodeld */; };
 		80F10D411F301A7600A11EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80F10D401F301A7600A11EBF /* Assets.xcassets */; };
@@ -16,6 +16,8 @@
 		80F10D4F1F301A7600A11EBF /* AppVideosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D4E1F301A7600A11EBF /* AppVideosTests.swift */; };
 		80F10D5A1F301A7600A11EBF /* AppVideosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D591F301A7600A11EBF /* AppVideosUITests.swift */; };
 		80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D691F302C5F00A11EBF /* VideoCell.swift */; };
+		80F10D6E1F317CD800A11EBF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D6D1F317CD800A11EBF /* Extensions.swift */; };
+		80F10D711F31812E00A11EBF /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D701F31812E00A11EBF /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		80F10D331F301A7600A11EBF /* AppVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F10D361F301A7600A11EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80F10D381F301A7600A11EBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		80F10D381F301A7600A11EBF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		80F10D3B1F301A7600A11EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		80F10D3E1F301A7600A11EBF /* AppVideos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppVideos.xcdatamodel; sourceTree = "<group>"; };
 		80F10D401F301A7600A11EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		80F10D591F301A7600A11EBF /* AppVideosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVideosUITests.swift; sourceTree = "<group>"; };
 		80F10D5B1F301A7600A11EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F10D691F302C5F00A11EBF /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		80F10D6D1F317CD800A11EBF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		80F10D701F31812E00A11EBF /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +105,15 @@
 		80F10D351F301A7600A11EBF /* AppVideos */ = {
 			isa = PBXGroup;
 			children = (
+				80F10D6F1F317D2000A11EBF /* Controller */,
+				80F10D6C1F317CC100A11EBF /* Helpers */,
+				80F10D6B1F317CA100A11EBF /* View */,
 				80F10D361F301A7600A11EBF /* AppDelegate.swift */,
-				80F10D381F301A7600A11EBF /* ViewController.swift */,
 				80F10D3A1F301A7600A11EBF /* Main.storyboard */,
 				80F10D401F301A7600A11EBF /* Assets.xcassets */,
 				80F10D421F301A7600A11EBF /* LaunchScreen.storyboard */,
 				80F10D451F301A7600A11EBF /* Info.plist */,
 				80F10D3D1F301A7600A11EBF /* AppVideos.xcdatamodeld */,
-				80F10D691F302C5F00A11EBF /* VideoCell.swift */,
 			);
 			path = AppVideos;
 			sourceTree = "<group>";
@@ -129,6 +134,31 @@
 				80F10D5B1F301A7600A11EBF /* Info.plist */,
 			);
 			path = AppVideosUITests;
+			sourceTree = "<group>";
+		};
+		80F10D6B1F317CA100A11EBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80F10D691F302C5F00A11EBF /* VideoCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		80F10D6C1F317CC100A11EBF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				80F10D6D1F317CD800A11EBF /* Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		80F10D6F1F317D2000A11EBF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				80F10D381F301A7600A11EBF /* HomeController.swift */,
+				80F10D701F31812E00A11EBF /* MenuBar.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80F10D391F301A7600A11EBF /* ViewController.swift in Sources */,
+				80F10D6E1F317CD800A11EBF /* Extensions.swift in Sources */,
+				80F10D391F301A7600A11EBF /* HomeController.swift in Sources */,
+				80F10D711F31812E00A11EBF /* MenuBar.swift in Sources */,
 				80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */,
 				80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */,
 				80F10D3F1F301A7600A11EBF /* AppVideos.xcdatamodeld in Sources */,

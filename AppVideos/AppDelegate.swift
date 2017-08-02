@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +22,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
+        
+        UINavigationBar.appearance().barTintColor = UIColor.redNavigationBar()
+        
+        removeBlackBarUnderneathNavBar()
+        customizeStatusBar()
         return true
+    }
+    
+    private func removeBlackBarUnderneathNavBar(){
+        UINavigationBar.appearance().shadowImage = UIImage()
+        // This line add image to Navigation bar
+        //UINavigationBar.appearance().setBackgroundImage(UIImage(named: "image")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    
+    private func customizeStatusBar(){
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        let statusBarBackgroundView = UIView()
+        statusBarBackgroundView.backgroundColor = UIColor.redStatusBar()
+        
+        window?.addSubview(statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
+        window?.addConstraintsWithFormat(format: "V:|[v0(20)]", views: statusBarBackgroundView)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

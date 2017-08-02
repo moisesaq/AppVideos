@@ -37,7 +37,7 @@ class VideoCell: UICollectionViewCell {
     
     let separeteView: UIView = {
        let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
         return view
     }()
     
@@ -102,20 +102,5 @@ class VideoCell: UICollectionViewCell {
         
         //height constraint
         addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
-    }
-}
-
-
-extension UIView{
-    
-    func addConstraintsWithFormat(format: String, views: UIView...){
-        var viewsDictionary = [String: UIView]()
-        for (index, view) in views.enumerated() {
-            let key = "v\(index)"
-            view.translatesAutoresizingMaskIntoConstraints = false
-            viewsDictionary[key] = view
-        }
-        
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
