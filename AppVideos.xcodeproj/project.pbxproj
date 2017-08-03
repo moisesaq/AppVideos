@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		802441B61F32CCC9006DEBD6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802441B51F32CCC9006DEBD6 /* Video.swift */; };
 		80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D361F301A7600A11EBF /* AppDelegate.swift */; };
 		80F10D391F301A7600A11EBF /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F10D381F301A7600A11EBF /* HomeController.swift */; };
 		80F10D3C1F301A7600A11EBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F10D3A1F301A7600A11EBF /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		802441B51F32CCC9006DEBD6 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		80F10D331F301A7600A11EBF /* AppVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F10D361F301A7600A11EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F10D381F301A7600A11EBF /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		802441B41F32CCB8006DEBD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				802441B51F32CCC9006DEBD6 /* Video.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		80F10D2A1F301A7600A11EBF = {
 			isa = PBXGroup;
 			children = (
@@ -109,9 +119,10 @@
 		80F10D351F301A7600A11EBF /* AppVideos */ = {
 			isa = PBXGroup;
 			children = (
+				802441B41F32CCB8006DEBD6 /* Model */,
+				80F10D6B1F317CA100A11EBF /* View */,
 				80F10D6F1F317D2000A11EBF /* Controller */,
 				80F10D6C1F317CC100A11EBF /* Helpers */,
-				80F10D6B1F317CA100A11EBF /* View */,
 				80F10D361F301A7600A11EBF /* AppDelegate.swift */,
 				80F10D3A1F301A7600A11EBF /* Main.storyboard */,
 				80F10D401F301A7600A11EBF /* Assets.xcassets */,
@@ -305,6 +316,7 @@
 				80F10D391F301A7600A11EBF /* HomeController.swift in Sources */,
 				80F10D711F31812E00A11EBF /* MenuBar.swift in Sources */,
 				80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */,
+				802441B61F32CCC9006DEBD6 /* Video.swift in Sources */,
 				80F10D731F319ADD00A11EBF /* BaseCell.swift in Sources */,
 				80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */,
 				80F10D751F319B7800A11EBF /* MenuCell.swift in Sources */,
@@ -553,6 +565,7 @@
 				80F10D601F301A7600A11EBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80F10D611F301A7600A11EBF /* Build configuration list for PBXNativeTarget "AppVideosTests" */ = {
 			isa = XCConfigurationList;
@@ -561,6 +574,7 @@
 				80F10D631F301A7600A11EBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80F10D641F301A7600A11EBF /* Build configuration list for PBXNativeTarget "AppVideosUITests" */ = {
 			isa = XCConfigurationList;
@@ -569,6 +583,7 @@
 				80F10D661F301A7600A11EBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
