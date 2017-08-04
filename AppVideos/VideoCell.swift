@@ -12,15 +12,11 @@ class VideoCell: BaseCell {
     
     var video: Video?{
         didSet{
-            
-            guard let video = video else {
-                return
-            }
-            titleLabel.text = video.title
+            titleLabel.text = video?.title
             loadthumbnailImage()
             loadProfileImage()
-            showChannelData(video: video)
-            measureTitleText()
+            
+            showChannelData()
         }
     }
     
@@ -36,24 +32,22 @@ class VideoCell: BaseCell {
         self.profileImageView.loadImageWithUrlString(urlString: profileImageURL)
     }
     
-    func showChannelData(video: Video){
-        video.printData()
-        if let channelName = video.channel?.name, let numberOfViews = video.numberOfViews {
+    func showChannelData(){
+        if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             let subtitleText = "\(channelName) * \(numberFormatter.string(from: numberOfViews)!) * 2 years ago - Coming soon in cartoon network"
             subtitleTextView.text = subtitleText
         }
-    }
-    
-    private func measureTitleText(){
+        
         //MEASURE TITLE TEXT
         if let title = video?.title {
             let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000) //height is arbitrary
             let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
             let estimateRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
             
-            if estimateRect.size.height > 20 {
+            //print("\(String(describing: video?.title)) >>> \(estimateRect.size.width)")
+            if estimateRect.size.width > 280 {
                 titleLabelHeightConstraint.constant = 44
             }else{
                 titleLabelHeightConstraint.constant = 20
@@ -61,7 +55,6 @@ class VideoCell: BaseCell {
             
         }
     }
-    
 
     let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()

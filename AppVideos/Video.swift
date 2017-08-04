@@ -18,7 +18,7 @@ class Video: NSObject{
     var channel: Channel?
     
     func printData(){
-        print("\(thumbnailImageName) - \(title) - \(title) - \(numberOfViews)")
+        print("\(thumbnailImageName ?? "not fount") - \(title ?? "not fount") - \(String(describing: numberOfViews))")
     }
     
     static func testVideosDragonBall() -> [Video]{
