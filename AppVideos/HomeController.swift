@@ -10,7 +10,7 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    var videos: [Video] = Video.testVideosDragonBall()
+    var videos: [Video]? //= Video.testVideosDragonBall()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         registerVideoCell()
         setUpMenuBar()
         setUpNavBarButtons()
+        
+        Video.findVideos(){ (result: [Video]) in
+            self.videos = result
+            self.collectionView?.reloadData()
+        }
     }
     
     fileprivate func customizeNavigationTitleLabel(){
@@ -69,16 +74,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func handleMore(){
-        print("More")
+        Video.findVideos(){ (result: [Video]) in
+            print(result)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        return videos?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! VideoCell
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         return cell
     }
     

@@ -12,33 +12,53 @@ class VideoCell: BaseCell {
     
     var video: Video?{
         didSet{
-            titleLabel.text = video?.title
-            thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
             
-            if let profileImageName = video?.channel?.profileImageName {
-                profileImageView.image = UIImage(named: profileImageName)
+            guard let video = video else {
+                return
+            }
+            titleLabel.text = video.title
+            loadthumbnailImage()
+            loadProfileImage()
+            showChannelData(video: video)
+            measureTitleText()
+        }
+    }
+    
+    func loadthumbnailImage(){
+        guard let thumbnailImageURL = video?.thumbnailImageName else { return }
+        
+        self.thumbnailImageView.loadImageWithUrlString(urlString: thumbnailImageURL)
+    }
+    
+    func loadProfileImage(){
+        guard let profileImageURL = video?.channel?.profileImageName else { return }
+        
+        self.profileImageView.loadImageWithUrlString(urlString: profileImageURL)
+    }
+    
+    func showChannelData(video: Video){
+        video.printData()
+        if let channelName = video.channel?.name, let numberOfViews = video.numberOfViews {
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            let subtitleText = "\(channelName) * \(numberFormatter.string(from: numberOfViews)!) * 2 years ago - Coming soon in cartoon network"
+            subtitleTextView.text = subtitleText
+        }
+    }
+    
+    private func measureTitleText(){
+        //MEASURE TITLE TEXT
+        if let title = video?.title {
+            let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000) //height is arbitrary
+            let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+            let estimateRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+            
+            if estimateRect.size.height > 20 {
+                titleLabelHeightConstraint.constant = 44
+            }else{
+                titleLabelHeightConstraint.constant = 20
             }
             
-            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .decimal
-                let subtitleText = "\(channelName) * \(numberFormatter.string(from: numberOfViews)!) * 2 years ago - Coming soon in cartoon network"
-                subtitleTextView.text = subtitleText
-            }
-            
-            //MEASURE TITLE TEXT
-            if let title = video?.title {
-                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16, height: 1000) //height is arbitrary
-                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-                let estimateRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
-                
-                if estimateRect.size.height > 20 {
-                    titleLabelHeightConstraint.constant = 44
-                }else{
-                    titleLabelHeightConstraint.constant = 20
-                }
-                
-            }
         }
     }
     
@@ -54,8 +74,9 @@ class VideoCell: BaseCell {
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo")
-        imageView.layer.cornerRadius = 22
+        imageView.layer.cornerRadius = 22 //22 because the size of imageView is 44
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill //keep the scale image original
         return imageView
     }()
     
