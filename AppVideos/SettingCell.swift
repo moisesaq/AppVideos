@@ -41,6 +41,7 @@ class SettingCell: BaseCell{
         let imageView = UIImageView()
         imageView.image = UIImage(named: "setting")
         imageView.contentMode = .scaleToFill
+        imageView.tintColor = .darkGray
         return imageView
     }()
     
