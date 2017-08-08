@@ -75,10 +75,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print("Seach")
     }
     
+    let setting = SettingLauncher()
+    
     func handleMore(){
-        Video.findVideos(){ (result: [Video]) in
-            print(result)
-        }
+        setting.showSetting()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
