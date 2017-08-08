@@ -25,7 +25,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         Video.findVideos(){ (result: [Video]) in
             self.videos = result
-            self.collectionView?.reloadData()
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
         }
     }
     

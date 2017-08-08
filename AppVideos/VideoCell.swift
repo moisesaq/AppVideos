@@ -15,7 +15,6 @@ class VideoCell: BaseCell {
             titleLabel.text = video?.title
             loadthumbnailImage()
             loadProfileImage()
-            
             showChannelData()
         }
     }
@@ -56,16 +55,16 @@ class VideoCell: BaseCell {
         }
     }
 
-    let thumbnailImageView: UIImageView = {
-        let imageView = UIImageView()
+    let thumbnailImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named: "dragon_ball_super")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
+    let profileImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.image = UIImage(named: "logo")
         imageView.layer.cornerRadius = 22 //22 because the size of imageView is 44
         imageView.layer.masksToBounds = true
