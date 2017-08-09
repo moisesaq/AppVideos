@@ -31,7 +31,8 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     func showSetting(){
         if let window = UIApplication.shared.keyWindow{
             blackWindow.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            blackWindow.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+            blackWindow.addGestureRecognizer(
+                UITapGestureRecognizer(target: self, action: #selector(dismissSettings)))
             
             blackWindow.frame = window.frame
             blackWindow.alpha = 0
@@ -49,13 +50,23 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    func handleDismiss(){
-        UIView.animate(withDuration: 0.3, animations: {
+    func dismissSettings(){
+        handleDismiss(closure: {
+            print("dismiss")
+        })
+    }
+    
+    var homeController: HomeController?
+    
+    func handleDismiss(closure: @escaping () -> Void){
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
             self.blackWindow.alpha = 0
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
-        })
+        }){ (completed: Bool) in
+            closure()
+        }
     }
     let settings: [Setting] = Setting.getSettingList()
     
@@ -76,6 +87,15 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
         let setting = settings[indexPath.item]
         cell?.setting = setting
         return cell!;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let setting = settings[indexPath.item]
+        handleDismiss(closure: {
+            if setting.name != "" && setting.name != "Cancel" {
+             self.homeController?.showControllerForSetting(setting: setting)
+            }
+        })
     }
     
 }

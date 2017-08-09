@@ -78,7 +78,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let setting = SettingLauncher()
     
     func handleMore(){
+        setting.homeController = self
         setting.showSetting()
+    }
+    
+    func showControllerForSetting(setting: Setting){
+        let dummySettingViewController = UIViewController()
+        dummySettingViewController.view.backgroundColor = .white
+        dummySettingViewController.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.pushViewController(dummySettingViewController, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
