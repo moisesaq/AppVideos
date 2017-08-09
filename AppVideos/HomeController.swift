@@ -75,10 +75,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         print("Seach")
     }
     
-    let setting = SettingLauncher()
+    lazy var setting: SettingLauncher = {
+        let setting = SettingLauncher()
+        setting.homeController = self
+        return setting
+    }()
     
     func handleMore(){
-        setting.homeController = self
         setting.showSetting()
     }
     
