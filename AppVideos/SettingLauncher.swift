@@ -51,21 +51,19 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func dismissSettings(){
-        handleDismiss(closure: {
-            print("dismiss")
-        })
+        handleDismiss(closure: nil)
     }
     
     var homeController: HomeController?
     
-    func handleDismiss(closure: @escaping () -> Void){
+    func handleDismiss(closure: (() -> Void)?){
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
             self.blackWindow.alpha = 0
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         }){ (completed: Bool) in
-            closure()
+            closure?()
         }
     }
     let settings: [Setting] = Setting.getSettingList()
@@ -92,7 +90,7 @@ class SettingLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let setting = settings[indexPath.item]
         handleDismiss(closure: {
-            if setting.name != "" && setting.name != "Cancel" {
+            if setting.name != .cancel {
              self.homeController?.showControllerForSetting(setting: setting)
             }
         })
