@@ -41,10 +41,42 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         //Initilize collection view selected in the first item
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredHorizontally)
+        
+        addHorizontalBarView()
+    }
+    
+    var horizontalBarLeftAnchorConstraint: NSLayoutConstraint?
+    
+    private func addHorizontalBarView(){
+        let horizontalBarView = UIView()
+        horizontalBarView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        horizontalBarView.translatesAutoresizingMaskIntoConstraints = false //Enable for build with constrants
+        
+        addSubview(horizontalBarView)
+        
+        horizontalBarLeftAnchorConstraint = horizontalBarView.leftAnchor.constraint(equalTo: self.leftAnchor)
+        
+        horizontalBarLeftAnchorConstraint?.isActive = true
+        horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
     }
     
     private func registerCell(){
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: cellId)
+    }
+    
+    var homeController: HomeController?
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //------ THIS ANIMATION ISN'T NECESSARY BECAUSE MAKE IT HOME CONTROLLER ------
+        /*let x = CGFloat(indexPath.item) * (frame.width / 4)
+        horizontalBarLeftAnchorConstraint?.constant = x
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)*/
+        
+        homeController?.showScrollToMenuIndex(menuIndex: indexPath.item) // TODO: Use the protocol for notify to HomeController
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

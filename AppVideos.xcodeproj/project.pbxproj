@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		802441B61F32CCC9006DEBD6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802441B51F32CCC9006DEBD6 /* Video.swift */; };
+		806F4EDB1F3D445B000309F7 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806F4EDA1F3D445B000309F7 /* ApiService.swift */; };
 		80BE79D11F39641F00752CE9 /* SettingLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE79D01F39641F00752CE9 /* SettingLauncher.swift */; };
 		80BE79D31F396C9000752CE9 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE79D21F396C9000752CE9 /* SettingCell.swift */; };
 		80BE79D51F397B0900752CE9 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BE79D41F397B0900752CE9 /* Setting.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		802441B51F32CCC9006DEBD6 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		806F4EDA1F3D445B000309F7 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		80BE79D01F39641F00752CE9 /* SettingLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingLauncher.swift; sourceTree = "<group>"; };
 		80BE79D21F396C9000752CE9 /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		80BE79D41F397B0900752CE9 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		806F4ED91F3D442E000309F7 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				806F4EDA1F3D445B000309F7 /* ApiService.swift */,
+			);
+			name = ApiService;
+			sourceTree = "<group>";
+		};
 		80F10D2A1F301A7600A11EBF = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		80F10D351F301A7600A11EBF /* AppVideos */ = {
 			isa = PBXGroup;
 			children = (
+				806F4ED91F3D442E000309F7 /* ApiService */,
 				802441B41F32CCB8006DEBD6 /* Model */,
 				80F10D6B1F317CA100A11EBF /* View */,
 				80F10D6F1F317D2000A11EBF /* Controller */,
@@ -328,6 +339,7 @@
 				80F10D6A1F302C5F00A11EBF /* VideoCell.swift in Sources */,
 				80BE79D31F396C9000752CE9 /* SettingCell.swift in Sources */,
 				802441B61F32CCC9006DEBD6 /* Video.swift in Sources */,
+				806F4EDB1F3D445B000309F7 /* ApiService.swift in Sources */,
 				80F10D731F319ADD00A11EBF /* BaseCell.swift in Sources */,
 				80F10D371F301A7600A11EBF /* AppDelegate.swift in Sources */,
 				80F10D751F319B7800A11EBF /* MenuCell.swift in Sources */,
