@@ -20,19 +20,19 @@ class VideoCell: BaseCell {
     }
     
     func loadthumbnailImage(){
-        guard let thumbnailImageURL = video?.thumbnailImageName else { return }
+        guard let thumbnailImageURL = video?.thumbnail_image_name else { return }
         
         self.thumbnailImageView.loadImageWithUrlString(urlString: thumbnailImageURL)
     }
     
     func loadProfileImage(){
-        guard let profileImageURL = video?.channel?.profileImageName else { return }
+        guard let profileImageURL = video?.channel?.profile_image_name else { return }
         
         self.profileImageView.loadImageWithUrlString(urlString: profileImageURL)
     }
     
     func showChannelData(){
-        if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+        if let channelName = video?.channel?.name, let numberOfViews = video?.number_of_views {
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
             let subtitleText = "\(channelName) * \(numberFormatter.string(from: numberOfViews)!) * 2 years ago - Coming soon in cartoon network"
