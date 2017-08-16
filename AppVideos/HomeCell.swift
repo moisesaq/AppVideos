@@ -58,4 +58,9 @@ class HomeCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, 
        let height = (frame.width - 16 - 16) * 9 / 16 //It is for resolution 16:9
        return CGSize(width: frame.width, height: height + 16 + 80) //80 after was 68, come from Vertical constraints (VideoCell)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let videoLauncher = VideoLauncher()
+        videoLauncher.showVideoPlayer()
+    }
 }
