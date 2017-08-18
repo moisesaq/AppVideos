@@ -145,6 +145,18 @@ class VideoPlayerView: UIView {
             player?.play()
             
             player?.addObserver(self, forKeyPath: keyPathForPlayer, options: .new, context: nil)
+            
+            //track player progress
+            
+            let interval = CMTime(value: 1, timescale: 2)
+            player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
+                self.currentTimeLabel.text = self.convertToVideoTime(time: progressTime)
+                
+                if let duration = self.player?.currentItem?.duration {
+                    let durationSeconds = CMTimeGetSeconds(duration)
+                    self.videoSlider.value = Float(CMTimeGetSeconds(progressTime) / durationSeconds)
+                }
+            })
         }
     }
     
@@ -156,10 +168,7 @@ class VideoPlayerView: UIView {
             isPlaying = true
             
             if let duration = player?.currentItem?.duration {
-                let seconds = CMTimeGetSeconds(duration)
-                let secondsText = Int(seconds) % 60
-                let minutesText = String(format: "%02d", Int(seconds) / 60)
-                videoLenghtLabel.text = "\(minutesText):\(secondsText)"
+                videoLenghtLabel.text = convertToVideoTime(time: duration)
             }
         }
     }
@@ -170,6 +179,13 @@ class VideoPlayerView: UIView {
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         gradientLayer.locations = [0.7, 1.2]
         controlsContainerView.layer.addSublayer(gradientLayer)
+    }
+    
+    private func convertToVideoTime(time: CMTime) -> String{
+        let seconds = CMTimeGetSeconds(time)
+        let secondsText = String(format: "%02d", Int(seconds) % 60)
+        let minutesText = String(format: "%02d", Int(seconds) / 60)
+        return "\(minutesText):\(secondsText)"
     }
     
     required init?(coder aDecoder: NSCoder) {
