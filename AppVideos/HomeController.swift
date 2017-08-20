@@ -25,6 +25,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         setUpNavBarButtons()
     }
     
+    //THIS CODE ALIGN TITLE TO RIGHT AND CUSTOMIZE IT
     fileprivate func customizeNavigationTitleLabel(){
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.text = "Home"
