@@ -14,12 +14,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
-        navigationController?.navigationBar.isTranslucent = false //Remove opacity from navigation bar
-
         customizeNavigationTitleLabel()
         configCollectionView()
-        //registerVideoCell()
         regiterCells()
         setUpMenuBar()
         setUpNavBarButtons()
@@ -27,6 +23,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     //THIS CODE ALIGN TITLE TO RIGHT AND CUSTOMIZE IT
     fileprivate func customizeNavigationTitleLabel(){
+        navigationItem.title = "Home"
+        navigationController?.navigationBar.isTranslucent = false //Remove opacity from navigation bar
+        
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
         titleLabel.text = "Home"
         titleLabel.textColor = .white
