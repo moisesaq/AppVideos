@@ -41,7 +41,7 @@ class Video: NSObject{
     }
     
     func printData(){
-        print("\(thumbnail_image_name ?? "not fount") - \(title ?? "not fount") - \(String(describing: number_of_views))")
+        print("\(thumbnail_image_name ?? "not found") - \(title ?? "not found") - \(String(describing: number_of_views))")
     }
 }
 
